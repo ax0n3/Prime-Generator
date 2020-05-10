@@ -66,20 +66,20 @@ public class Prime {
 		// Create sequence from start to end without base primes
 		// find list of primes leading up to start
 		// remove component numbers
-		File sequence = new File("sequence-temp.txt");
-		if(sequence.exists()) 
-			sequence.delete();
-		sequence.createNewFile();					
-		System.setOut(new PrintStream(sequence));
+		File log = new File("sequence-temp.txt");
+		if(log.exists()) 
+			log.delete();
+		log.createNewFile();					
+		System.setOut(new PrintStream(log));
 		
-		int[] bp = {2,3,5,7};
+		int[] basePrimes = {2,3,5,7};
 		for(int i=start;i<end;i++) {
-			for(int p:bp)
-				if(i % p != 0)
+			for(int prime:basePrimes)
+				if(i % prime != 0)
 					System.out.println(i);				
 		}
 		
-		FileReader readSequence = new FileReader(sequence);
+		FileReader readSequence = new FileReader(log);
 		BufferedReader br = new BufferedReader(readSequence);
 		
 		String getLine = "";
