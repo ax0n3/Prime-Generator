@@ -23,37 +23,38 @@ public class Prime {
 	}
 	// uses linked list to store data
 	public int[] alpha() {
-		LinkedList<Integer> head = new LinkedList<>();
-		ListIterator<Integer> index = null;
+		int beginning = start
+		LinkedList<Integer> nodeLL = new LinkedList<>();
+		ListIterator<Integer> iteratorIndex = null;
 		
-		if(start < 1 || end > UPPER_LIMIT)
+		if(beginning < 1 || end > UPPER_LIMIT)
 			throw new Exception("Unexpected lower bound.");
 		
-		int count = start;
-		if(count == 1)
-			count++;
+		int counter = start;
+		if(counter == 1)
+			counter++;
 		
-		while(count < end) {
-			if(index != null) {
-				index = head.listIterator(0);
+		while(counter < end) {
+			if(iteratorIndex != null) {
+				iteratorIndex = nodeLL.listIterator(0);
 				
-				int i;
-				while(index.hasNext()) {
-					i = index.next();
-					if(count % i == 0)
+				int ni;
+				while(itertorIndex.hasNext()) {
+					ni = iteratorIndex.next();
+					if(counter % i == 0)
 						break;
 				}
-				head.add(count);
+				nodeLL.add(count);
 			}
 			else {
-				if(isPrime(count))
-					head.add(count);
+				if(isPrime(counter))
+					nodeLL.add(counter);
 			}
-			count++;
+			counter++;
 		}
 		
 		if(start == 1)
-		head.addFirst(1);
+		nodeLL.addFirst(1);
 	}
 	public void hasFactors() {
 		
